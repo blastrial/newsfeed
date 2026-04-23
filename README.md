@@ -19,3 +19,6 @@ Initial FastAPI project structure is ready.
 - `/`
 - `/health`
 - `/version`
+- `/sources`
+- `/articles`
+- `/feed/default`
