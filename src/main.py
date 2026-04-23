@@ -13,7 +13,7 @@ from src.schemas import (
     FeedRequest,
     StatsResponse,
 )
-from src.services import get_sources, get_articles
+from src.services import get_sources, get_articles, get_stats
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
 
@@ -54,7 +54,4 @@ def default_feed_settings():
 
 @app.get("/stats", response_model=StatsResponse)
 def stats():
-    return StatsResponse(
-        total_sources=len(get_sources()),
-        total_articles=len(get_articles()),
-    )
+    return StatsResponse(**get_stats())
