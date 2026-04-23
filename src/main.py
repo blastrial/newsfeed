@@ -1,13 +1,15 @@
 from fastapi import FastAPI
+from src.config import APP_NAME, APP_VERSION
 
-app = FastAPI(title="NewsFeed API")
+app = FastAPI(title=APP_NAME, version=APP_VERSION)
 
 
 @app.get("/")
 def home():
     return {
-        "project": "NewsFeed",
-        "message": "NewsFeed API is running"
+        "project": APP_NAME,
+        "message": "NewsFeed API is running",
+        "version": APP_VERSION,
     }
 
 
@@ -21,5 +23,5 @@ def health():
 @app.get("/version")
 def version():
     return {
-        "version": "0.1.0"
+        "version": APP_VERSION
     }
