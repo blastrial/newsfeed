@@ -8,7 +8,6 @@ from src.schemas import (
     FeedRequest,
 )
 from src.services import get_sources, get_articles
-from src.utils import normalize_text, shorten_text
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
 
@@ -39,14 +38,7 @@ def list_sources():
 
 @app.get("/articles", response_model=list[ArticleResponse])
 def list_articles():
-    return [
-        ArticleResponse(
-            title=normalize_text(item["title"]),
-            source=normalize_text(item["source"]),
-            summary=shorten_text(item["summary"]),
-        )
-        for item in get_articles()
-    ]
+    return [ArticleResponse(**item) for item in get_articles()]
 
 
 @app.get("/feed/default", response_model=FeedRequest)
