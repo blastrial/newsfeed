@@ -1,9 +1,22 @@
-## Current status
+# NewsFeed
 
-- Basic FastAPI app created
-- Config structure added
-- Requirements file added
+Multi-source news collection and summarization system.
+
+## Features
+
+- Collect news from multiple sources
+- RSS support
+- Scraping-based collection
+- NLP/AI summarization
+- Python backend
+
+## Project Structure
+
+- `src/` → application source code
+- `requirements.txt` → dependencies
+- `README.md` → project documentation
+
 ## API
 
-- `GET /` → basic app info
-- Config values come from `src/config.py`
+- `/` basic root endpoint
+- `/health` endpoint returns app name and version
