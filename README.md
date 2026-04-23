@@ -6,3 +6,4 @@
 ## API
 
 - `GET /` → basic app info
+- Config values come from `src/config.py`
