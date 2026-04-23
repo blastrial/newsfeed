@@ -1,6 +1,6 @@
 from src.config import DEFAULT_CATEGORY
 from src.parsers import parse_feed_items
-from src.utils import normalize_text, shorten_text
+from src.utils import normalize_text, shorten_text, make_slug
 
 
 def get_sources():
@@ -26,6 +26,7 @@ def get_articles():
             "title": normalize_text(item["title"]),
             "source": normalize_text(item["source"]),
             "summary": shorten_text(item["summary"]),
+            "slug": make_slug(item["title"]),
         }
         for item in raw_items
     ]
