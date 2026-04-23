@@ -13,3 +13,9 @@ class SourceResponse(BaseModel):
     name: str
     category: str
     url: str
+
+
+class ArticleResponse(BaseModel):
+    title: str
+    source: str
+    summary: str
