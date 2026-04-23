@@ -30,3 +30,9 @@ class FeedRequest(BaseModel):
 class StatsResponse(BaseModel):
     total_sources: int
     total_articles: int
+
+
+class SettingsResponse(BaseModel):
+    category: str
+    limit: int
+    language: str
