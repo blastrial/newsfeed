@@ -7,3 +7,7 @@ def shorten_text(value: str, limit: int = 120) -> str:
     if len(text) <= limit:
         return text
     return text[:limit].rstrip() + "..."
+
+
+def make_slug(value: str) -> str:
+    return value.strip().lower().replace(" ", "-")
