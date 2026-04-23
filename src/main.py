@@ -1,11 +1,12 @@
 from fastapi import FastAPI
+
 from src.config import settings
 
 app = FastAPI(title=settings.app_name, version=settings.version)
 
 
 @app.get("/")
-def home():
+def read_root():
     return {
         "app": settings.app_name,
         "version": settings.version,
@@ -14,5 +15,5 @@ def home():
 
 
 @app.get("/health")
-def health():
+def health_check():
     return {"ok": True}
