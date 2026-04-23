@@ -1,10 +1,5 @@
-# NewsFeed
+## Current status
 
-Multi-source news collection and summarization system.
-
-## Planned features
-- RSS feed collection
-- Web scraping
-- NLP / AI summarization
-- FastAPI backend
-- Database support
+- Basic FastAPI app created
+- Config structure added
+- Requirements file added
