@@ -55,3 +55,8 @@ def default_feed_settings():
 @app.get("/stats", response_model=StatsResponse)
 def stats():
     return StatsResponse(**get_stats())
+
+
+@app.get("/articles/first", response_model=ArticleResponse)
+def first_article():
+    return ArticleResponse(**get_articles()[0])
