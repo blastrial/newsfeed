@@ -29,3 +29,10 @@ def get_articles():
         }
         for item in raw_items
     ]
+
+
+def get_stats():
+    return {
+        "total_sources": len(get_sources()),
+        "total_articles": len(get_articles()),
+    }
