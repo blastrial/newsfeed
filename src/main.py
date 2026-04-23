@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-from src.config import APP_NAME, APP_VERSION
+from src.config import APP_NAME, APP_VERSION, DEFAULT_CATEGORY, DEFAULT_LIMIT
 from src.schemas import (
     HealthResponse,
     VersionResponse,
     SourceResponse,
     ArticleResponse,
+    FeedRequest,
 )
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
@@ -63,3 +64,8 @@ def list_sources():
 @app.get("/articles", response_model=list[ArticleResponse])
 def list_articles():
     return [ArticleResponse(**item) for item in ARTICLES]
+
+
+@app.get("/feed/default", response_model=FeedRequest)
+def default_feed_settings():
+    return FeedRequest(category=DEFAULT_CATEGORY, limit=DEFAULT_LIMIT)
