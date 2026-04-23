@@ -19,6 +19,7 @@ class ArticleResponse(BaseModel):
     title: str
     source: str
     summary: str
+    slug: str
 
 
 class FeedRequest(BaseModel):
