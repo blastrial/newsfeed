@@ -1,4 +1,9 @@
-NEWS_SOURCES = [
-    "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
-    "https://feeds.bbci.co.uk/news/technology/rss.xml"
-]
+from pydantic import BaseModel
+
+
+class Settings(BaseModel):
+    app_name: str = "NewsFeed"
+    version: str = "0.1.0"
+
+
+settings = Settings()
