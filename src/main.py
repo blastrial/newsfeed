@@ -1,21 +1,25 @@
 from fastapi import FastAPI
 
-from src.config import settings
-
-app = FastAPI(title=settings.app_name, version=settings.version)
+app = FastAPI(title="NewsFeed API")
 
 
 @app.get("/")
-def read_root():
+def home():
     return {
-        "app": settings.app_name,
-        "version": settings.version,
-        "status": "running"
+        "project": "NewsFeed",
+        "message": "NewsFeed API is running"
     }
 
 
 @app.get("/health")
-def health_check():
+def health():
     return {
         "status": "ok"
+    }
+
+
+@app.get("/version")
+def version():
+    return {
+        "version": "0.1.0"
     }
