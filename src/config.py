@@ -1,7 +1,8 @@
-from pydantic_settings import BaseSettings
+from dataclasses import dataclass
 
 
-class Settings(BaseSettings):
+@dataclass
+class Settings:
     app_name: str = "NewsFeed"
     version: str = "0.1.0"
 
