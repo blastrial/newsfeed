@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from src.config import APP_NAME, APP_VERSION
+from src.schemas import HealthResponse, VersionResponse
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
 
@@ -13,15 +14,11 @@ def home():
     }
 
 
-@app.get("/health")
+@app.get("/health", response_model=HealthResponse)
 def health():
-    return {
-        "status": "ok"
-    }
+    return HealthResponse(status="ok")
 
 
-@app.get("/version")
+@app.get("/version", response_model=VersionResponse)
 def version():
-    return {
-        "version": APP_VERSION
-    }
+    return VersionResponse(version=APP_VERSION)
