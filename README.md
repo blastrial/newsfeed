@@ -1,22 +1,9 @@
 # NewsFeed
 
-Multi-source news collection and summarization system.
+Çoklu kaynaktan haber toplayan ve özetleyen sistem.
 
-## Features
-
-- Collect news from multiple sources
-- RSS support
-- Scraping-based collection
-- NLP/AI summarization
-- Python backend
-
-## Project Structure
-
-- `src/` → application source code
-- `requirements.txt` → dependencies
-- `README.md` → project documentation
-
-## API
-
-- `/` basic root endpoint
-- `/health` endpoint returns app name and version
+## İlk hedef
+- FastAPI backend kurmak
+- RSS ve scraping altyapısı eklemek
+- Haberleri tek yerde toplamak
+- Daha sonra AI özetleme eklemek
