@@ -1,4 +1,5 @@
 from src.config import DEFAULT_CATEGORY
+from src.parsers import parse_feed_items
 from src.utils import normalize_text, shorten_text
 
 
@@ -18,19 +19,13 @@ def get_sources():
 
 
 def get_articles():
+    raw_items = parse_feed_items()
+
     return [
         {
-            "title": normalize_text("Global markets start the week higher"),
-            "source": normalize_text("Reuters"),
-            "summary": shorten_text(
-                "Markets opened higher as investors reacted to new economic signals."
-            ),
-        },
-        {
-            "title": normalize_text("Technology trends reshape media industry"),
-            "source": normalize_text("BBC"),
-            "summary": shorten_text(
-                "New AI tools are changing how content is produced and summarized."
-            ),
-        },
+            "title": normalize_text(item["title"]),
+            "source": normalize_text(item["source"]),
+            "summary": shorten_text(item["summary"]),
+        }
+        for item in raw_items
     ]
