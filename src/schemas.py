@@ -19,3 +19,8 @@ class ArticleResponse(BaseModel):
     title: str
     source: str
     summary: str
+
+
+class FeedRequest(BaseModel):
+    category: str
+    limit: int
