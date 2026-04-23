@@ -24,3 +24,8 @@ class ArticleResponse(BaseModel):
 class FeedRequest(BaseModel):
     category: str
     limit: int
+
+
+class StatsResponse(BaseModel):
+    total_sources: int
+    total_articles: int
