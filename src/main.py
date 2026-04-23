@@ -1,11 +1,17 @@
 from fastapi import FastAPI
-from src.config import APP_NAME, APP_VERSION, DEFAULT_CATEGORY, DEFAULT_LIMIT
+from src.config import (
+    APP_NAME,
+    APP_VERSION,
+    DEFAULT_CATEGORY,
+    DEFAULT_LIMIT,
+)
 from src.schemas import (
     HealthResponse,
     VersionResponse,
     SourceResponse,
     ArticleResponse,
     FeedRequest,
+    StatsResponse,
 )
 from src.services import get_sources, get_articles
 
@@ -44,3 +50,11 @@ def list_articles():
 @app.get("/feed/default", response_model=FeedRequest)
 def default_feed_settings():
     return FeedRequest(category=DEFAULT_CATEGORY, limit=DEFAULT_LIMIT)
+
+
+@app.get("/stats", response_model=StatsResponse)
+def stats():
+    return StatsResponse(
+        total_sources=len(get_sources()),
+        total_articles=len(get_articles()),
+    )
