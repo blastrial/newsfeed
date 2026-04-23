@@ -1,15 +1,23 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from fastapi import FastAPI
+from src.config import settings
+
+app = FastAPI(
+    title=settings.app_name,
+    version=settings.version,
+)
 
 
-class Settings(BaseSettings):
-    app_name: str = "NewsFeed"
-    version: str = "0.1.0"
-    debug: bool = True
-
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        env_file_encoding="utf-8",
-    )
+@app.get("/")
+def root():
+    return {
+        "app": settings.app_name,
+        "version": settings.version,
+        "status": "running",
+    }
 
 
-settings = Settings()
+@app.get("/health")
+def health():
+    return {
+        "ok": True
+    }
