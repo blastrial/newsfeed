@@ -1,13 +1,14 @@
+from src.fetchers import fetch_sample_feed
+
+
 def parse_feed_items():
+    items = fetch_sample_feed()
+
     return [
         {
-            "title": "Sample RSS item 1",
-            "source": "BBC",
-            "summary": "This is a sample parsed item.",
-        },
-        {
-            "title": "Sample RSS item 2",
-            "source": "Reuters",
-            "summary": "This is another sample parsed item.",
-        },
+            "title": item["title"],
+            "source": item["source"],
+            "summary": item["summary"],
+        }
+        for item in items
     ]
