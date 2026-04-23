@@ -1,5 +1,5 @@
 from src.config import DEFAULT_CATEGORY
-from src.utils import normalize_text
+from src.utils import normalize_text, shorten_text
 
 
 def get_sources():
@@ -21,12 +21,16 @@ def get_articles():
     return [
         {
             "title": normalize_text("Global markets start the week higher"),
-            "source": "Reuters",
-            "summary": "Markets opened higher as investors reacted to new economic signals.",
+            "source": normalize_text("Reuters"),
+            "summary": shorten_text(
+                "Markets opened higher as investors reacted to new economic signals."
+            ),
         },
         {
             "title": normalize_text("Technology trends reshape media industry"),
-            "source": "BBC",
-            "summary": "New AI tools are changing how content is produced and summarized.",
+            "source": normalize_text("BBC"),
+            "summary": shorten_text(
+                "New AI tools are changing how content is produced and summarized."
+            ),
         },
     ]
