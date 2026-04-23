@@ -12,3 +12,10 @@ def read_root():
         "version": settings.version,
         "status": "running"
     }
+
+
+@app.get("/health")
+def health_check():
+    return {
+        "status": "ok"
+    }
