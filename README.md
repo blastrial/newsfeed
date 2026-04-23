@@ -1,14 +1,15 @@
 # NewsFeed
 
-Multi-source news collection and summarization system.
+Çoklu kaynaktan haber toplayan ve özetleyen sistem.
 
-## Goal
-This project is for learning and building:
+## Amaç
+- RSS ve scraping ile haber toplamak
+- Python backend geliştirmek
+- NLP/AI ile özetleme altyapısı kurmak
 
-- scraping
-- RSS feed parsing
-- NLP / AI summarization
-- Python backend
+## Başlangıç
+Bu proje şu an temel FastAPI yapısıyla başlatıldı.
 
-## Current status
-Basic FastAPI project structure is ready.
+## Çalışan endpointler
+- `/`
+- `/health`
