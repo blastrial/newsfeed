@@ -2,12 +2,8 @@
 
 Multi-source news collection and summarization system.
 
-## Goal
-This project aims to collect news from multiple sources, process them, and prepare them for AI-based summarization.
-
-## Planned features
-- RSS feed collection
-- Web scraping
-- News normalization
-- AI/NLP summarization
-- API backend
+## Goals
+- collect news from multiple sources
+- parse rss feeds
+- prepare backend for summarization
+- later integrate into website
