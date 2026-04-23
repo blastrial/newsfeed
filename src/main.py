@@ -7,35 +7,10 @@ from src.schemas import (
     ArticleResponse,
     FeedRequest,
 )
+from src.services import get_sources, get_articles
 from src.utils import normalize_text, shorten_text
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
-
-SOURCES = [
-    {
-        "name": "BBC",
-        "category": "general",
-        "url": "https://feeds.bbci.co.uk/news/rss.xml",
-    },
-    {
-        "name": "Reuters",
-        "category": "general",
-        "url": "https://www.reutersagency.com/feed/?best-topics=business-finance&post_type=best",
-    },
-]
-
-ARTICLES = [
-    {
-        "title": "Global markets start the week higher",
-        "source": "Reuters",
-        "summary": "Markets opened higher as investors reacted to new economic signals.",
-    },
-    {
-        "title": "Technology trends reshape media industry",
-        "source": "BBC",
-        "summary": "New AI tools are changing how content is produced and summarized.",
-    },
-]
 
 
 @app.get("/")
@@ -59,7 +34,7 @@ def version():
 
 @app.get("/sources", response_model=list[SourceResponse])
 def list_sources():
-    return [SourceResponse(**item) for item in SOURCES]
+    return [SourceResponse(**item) for item in get_sources()]
 
 
 @app.get("/articles", response_model=list[ArticleResponse])
@@ -70,7 +45,7 @@ def list_articles():
             source=normalize_text(item["source"]),
             summary=shorten_text(item["summary"]),
         )
-        for item in ARTICLES
+        for item in get_articles()
     ]
 
 
