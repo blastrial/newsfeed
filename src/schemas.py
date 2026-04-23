@@ -7,3 +7,9 @@ class HealthResponse(BaseModel):
 
 class VersionResponse(BaseModel):
     version: str
+
+
+class SourceResponse(BaseModel):
+    name: str
+    category: str
+    url: str
