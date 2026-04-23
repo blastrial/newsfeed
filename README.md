@@ -13,6 +13,15 @@ NewsFeed is a multi-source news collection and summarization system.
 ## Current Status
 
 Initial FastAPI project structure is ready.
+Basic services layer is added.
+
+## Project Files
+
+- `src/main.py`
+- `src/config.py`
+- `src/schemas.py`
+- `src/services.py`
+- `src/utils.py`
 
 ## Endpoints
 
