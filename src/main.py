@@ -5,9 +5,9 @@ app = FastAPI(title=settings.app_name, version=settings.version)
 
 
 @app.get("/")
-def root():
+def home():
     return {
+        "message": "NewsFeed API is running",
         "app": settings.app_name,
         "version": settings.version,
-        "status": "running"
     }
