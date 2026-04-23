@@ -16,6 +16,7 @@ Initial FastAPI project structure is ready.
 Basic services layer is added.
 Parser and fetcher modules are connected.
 A stats endpoint is added.
+A first article endpoint is added.
 
 ## Project Files
 
@@ -34,5 +35,6 @@ A stats endpoint is added.
 - `/version`
 - `/sources`
 - `/articles`
+- `/articles/first`
 - `/feed/default`
 - `/stats`
