@@ -9,6 +9,7 @@ def parse_feed_items():
             "title": item["title"],
             "source": item["source"],
             "summary": item["summary"],
+            "category": item["category"],
         }
         for item in items
     ]
