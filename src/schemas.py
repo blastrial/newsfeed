@@ -20,6 +20,7 @@ class ArticleResponse(BaseModel):
     source: str
     summary: str
     slug: str
+    category: str
 
 
 class FeedRequest(BaseModel):
