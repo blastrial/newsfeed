@@ -61,3 +61,12 @@ def stats():
 @app.get("/settings", response_model=SettingsResponse)
 def settings():
     return SettingsResponse(**get_settings())
+
+
+@app.get("/categories")
+def categories():
+    articles = get_articles()
+    unique_categories = sorted({item["category"] for item in articles})
+    return {
+        "categories": unique_categories
+    }
