@@ -10,6 +10,7 @@ from src.schemas import (
     SettingsResponse,
 )
 from src.services import get_sources, get_articles, get_stats, get_settings
+from src.utils import unique_list
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
 
@@ -66,7 +67,6 @@ def settings():
 @app.get("/categories")
 def categories():
     articles = get_articles()
-    unique_categories = sorted({item["category"] for item in articles})
     return {
-        "categories": unique_categories
+        "categories": unique_list([item["category"] for item in articles])
     }
