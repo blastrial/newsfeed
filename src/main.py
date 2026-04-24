@@ -70,3 +70,10 @@ def categories():
     return CategoryListResponse(
         categories=unique_list([item["category"] for item in get_articles()])
     )
+
+
+@app.get("/languages")
+def languages():
+    return {
+        "languages": unique_list([item["language"] for item in get_articles()])
+    }
