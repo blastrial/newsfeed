@@ -42,3 +42,12 @@ class SettingsResponse(BaseModel):
 
 class CategoryListResponse(BaseModel):
     categories: list[str]
+
+
+class SummaryPreviewRequest(BaseModel):
+    text: str
+
+
+class SummaryPreviewResponse(BaseModel):
+    original_text: str
+    short_summary: str
