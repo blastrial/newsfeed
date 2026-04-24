@@ -19,6 +19,7 @@ A stats endpoint is added.
 A first article endpoint is added.
 A settings endpoint is added.
 A categories endpoint is added.
+A languages endpoint is added.
 Default settings are now served from the services layer.
 
 ## Project Files
@@ -43,3 +44,4 @@ Default settings are now served from the services layer.
 - `/stats`
 - `/settings`
 - `/categories`
+- `/languages`
