@@ -4,6 +4,7 @@ from src.config import (
     APP_VERSION,
     DEFAULT_CATEGORY,
     DEFAULT_LIMIT,
+    DEFAULT_LANGUAGE,
 )
 from src.schemas import (
     HealthResponse,
@@ -12,6 +13,7 @@ from src.schemas import (
     ArticleResponse,
     FeedRequest,
     StatsResponse,
+    SettingsResponse,
 )
 from src.services import get_sources, get_articles, get_stats
 
@@ -47,6 +49,11 @@ def list_articles():
     return [ArticleResponse(**item) for item in get_articles()]
 
 
+@app.get("/articles/first", response_model=ArticleResponse)
+def first_article():
+    return ArticleResponse(**get_articles()[0])
+
+
 @app.get("/feed/default", response_model=FeedRequest)
 def default_feed_settings():
     return FeedRequest(category=DEFAULT_CATEGORY, limit=DEFAULT_LIMIT)
@@ -57,6 +64,10 @@ def stats():
     return StatsResponse(**get_stats())
 
 
-@app.get("/articles/first", response_model=ArticleResponse)
-def first_article():
-    return ArticleResponse(**get_articles()[0])
+@app.get("/settings", response_model=SettingsResponse)
+def settings():
+    return SettingsResponse(
+        category=DEFAULT_CATEGORY,
+        limit=DEFAULT_LIMIT,
+        language=DEFAULT_LANGUAGE,
+    )
