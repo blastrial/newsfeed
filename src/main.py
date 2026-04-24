@@ -9,9 +9,11 @@ from src.schemas import (
     StatsResponse,
     SettingsResponse,
     CategoryListResponse,
+    SummaryPreviewRequest,
+    SummaryPreviewResponse,
 )
 from src.services import get_sources, get_articles, get_stats, get_settings
-from src.utils import unique_list
+from src.utils import unique_list, shorten_text
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
 
@@ -77,3 +79,11 @@ def languages():
     return {
         "languages": unique_list([item["language"] for item in get_articles()])
     }
+
+
+@app.post("/summarize/preview", response_model=SummaryPreviewResponse)
+def summarize_preview(payload: SummaryPreviewRequest):
+    return SummaryPreviewResponse(
+        original_text=payload.text,
+        short_summary=shorten_text(payload.text, limit=100),
+    )
