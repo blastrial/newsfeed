@@ -21,6 +21,7 @@ class ArticleResponse(BaseModel):
     summary: str
     slug: str
     category: str
+    language: str
 
 
 class FeedRequest(BaseModel):
