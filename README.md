@@ -17,6 +17,7 @@ Basic services layer is added.
 Parser and fetcher modules are connected.
 A stats endpoint is added.
 A first article endpoint is added.
+A settings endpoint is added.
 
 ## Project Files
 
@@ -38,3 +39,4 @@ A first article endpoint is added.
 - `/articles/first`
 - `/feed/default`
 - `/stats`
+- `/settings`
