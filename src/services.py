@@ -1,4 +1,4 @@
-from src.config import DEFAULT_CATEGORY, DEFAULT_LANGUAGE
+from src.config import DEFAULT_CATEGORY, DEFAULT_LANGUAGE, DEFAULT_LIMIT
 from src.parsers import parse_feed_items
 from src.utils import normalize_text, shorten_text, make_slug
 
@@ -43,6 +43,6 @@ def get_stats():
 def get_settings():
     return {
         "category": DEFAULT_CATEGORY,
-        "limit": 10,
+        "limit": DEFAULT_LIMIT,
         "language": DEFAULT_LANGUAGE,
     }
