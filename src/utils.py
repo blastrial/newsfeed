@@ -11,3 +11,7 @@ def shorten_text(value: str, limit: int = 120) -> str:
 
 def make_slug(value: str) -> str:
     return value.strip().lower().replace(" ", "-")
+
+
+def unique_list(values: list[str]) -> list[str]:
+    return sorted(set(values))
