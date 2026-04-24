@@ -28,6 +28,7 @@ def get_articles():
             "summary": shorten_text(item["summary"]),
             "slug": make_slug(item["title"]),
             "category": normalize_text(item["category"]),
+            "language": normalize_text(item["language"]),
         }
         for item in raw_items
     ]
