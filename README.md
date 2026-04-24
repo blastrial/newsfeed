@@ -18,6 +18,7 @@ Parser and fetcher modules are connected.
 A stats endpoint is added.
 A first article endpoint is added.
 A settings endpoint is added.
+A categories endpoint is added.
 
 ## Project Files
 
@@ -40,3 +41,4 @@ A settings endpoint is added.
 - `/feed/default`
 - `/stats`
 - `/settings`
+- `/categories`
