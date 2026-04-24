@@ -37,3 +37,7 @@ class SettingsResponse(BaseModel):
     category: str
     limit: int
     language: str
+
+
+class CategoryListResponse(BaseModel):
+    categories: list[str]
