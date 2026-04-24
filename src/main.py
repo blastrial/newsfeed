@@ -1,11 +1,5 @@
 from fastapi import FastAPI
-from src.config import (
-    APP_NAME,
-    APP_VERSION,
-    DEFAULT_CATEGORY,
-    DEFAULT_LIMIT,
-    DEFAULT_LANGUAGE,
-)
+from src.config import APP_NAME, APP_VERSION, DEFAULT_CATEGORY, DEFAULT_LIMIT
 from src.schemas import (
     HealthResponse,
     VersionResponse,
@@ -15,7 +9,7 @@ from src.schemas import (
     StatsResponse,
     SettingsResponse,
 )
-from src.services import get_sources, get_articles, get_stats
+from src.services import get_sources, get_articles, get_stats, get_settings
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
 
@@ -66,8 +60,4 @@ def stats():
 
 @app.get("/settings", response_model=SettingsResponse)
 def settings():
-    return SettingsResponse(
-        category=DEFAULT_CATEGORY,
-        limit=DEFAULT_LIMIT,
-        language=DEFAULT_LANGUAGE,
-    )
+    return SettingsResponse(**get_settings())
