@@ -8,6 +8,7 @@ from src.schemas import (
     FeedRequest,
     StatsResponse,
     SettingsResponse,
+    CategoryListResponse,
 )
 from src.services import get_sources, get_articles, get_stats, get_settings
 from src.utils import unique_list
@@ -64,9 +65,8 @@ def settings():
     return SettingsResponse(**get_settings())
 
 
-@app.get("/categories")
+@app.get("/categories", response_model=CategoryListResponse)
 def categories():
-    articles = get_articles()
-    return {
-        "categories": unique_list([item["category"] for item in articles])
-    }
+    return CategoryListResponse(
+        categories=unique_list([item["category"] for item in get_articles()])
+    )
